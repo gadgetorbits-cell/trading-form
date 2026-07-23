@@ -1,0 +1,429 @@
+/* ---------- UPI Container ---------- */
+.upi-container {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* ---------- UPI Logo ---------- */
+.upi-logo {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ---------- Header ---------- */
+.header {
+    padding: 16px 20px 12px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-bottom: 1px solid #ececec;
+    flex-shrink: 0;
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+}
+
+.bank-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: #111;
+}
+
+/* ---------- Payment Card ---------- */
+.payment-card {
+    margin: 16px 20px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #fdf7ef, #faf4eb);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.payment-details {
+    flex: 1;
+}
+
+.payment-card h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    color: #111;
+}
+
+.payment-card h2 span {
+    color: #111;
+}
+
+.payment-card p {
+    margin-top: 8px;
+    font-size: 20px;
+    color: #444;
+    font-weight: 500;
+}
+
+/* Payment Icon */
+.payment-icon {
+    flex-shrink: 0;
+    margin-left: 16px;
+}
+
+.payment-icon-img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ---------- PIN Section ---------- */
+.pin-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.pin-section h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    color: #111;
+}
+
+.pin-dots {
+    display: flex;
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #555;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.dot.filled {
+    background: #222;
+    border-color: #222;
+}
+
+/* ---------- Warning ---------- */
+.warning {
+    margin: 0 20px 18px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff8f0;
+    border: 1px solid #ffe0b3;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #333;
+    flex-shrink: 0;
+}
+
+.warning-icon {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    background: transparent;
+    border: 2px solid #ff7b00;
+    color: #ff7b00;
+    font-size: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+/* ---------- Keypad ---------- */
+.keypad {
+    padding: 20px 16px 30px;
+    background: #eef2f6;
+    border-radius: 30px 30px 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.key {
+    height: 74px;
+    border-radius: 36px;
+    background: #fff;
+    border: none;
+    font-size: 28px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.key:hover {
+    background: #f8f8f8;
+}
+
+.key:active {
+    transform: scale(0.95);
+}
+
+/* Delete Key */
+.delete-key {
+    background: #dfe7ff;
+    font-size: 32px;
+    color: #333;
+}
+
+.delete-key:hover {
+    background: #d0daff;
+}
+
+/* Pay Key */
+.pay-key {
+    background: #d6d6d6;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.pay-key:disabled {
+    background: #cfcfcf;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.pay-key:disabled:hover {
+    background: #cfcfcf;
+    transform: none;
+}
+
+.pay-key-active {
+    background: #0047d4 !important;
+    color: white;
+}
+
+.pay-key-active:hover {
+    background: #003bb0 !important;
+    transform: scale(0.97);
+}
+
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 420px) {
+    .upi-container {
+        min-height: 100vh;
+    }
+
+    .header {
+        padding: 14px 16px 10px;
+    }
+
+    .upi-logo {
+        width: 105px;
+    }
+
+    .bank-name {
+        font-size: 18px;
+    }
+
+    .payment-card {
+        margin: 12px 16px;
+        padding: 16px 18px;
+    }
+
+    .payment-card h2 {
+        font-size: 22px;
+    }
+
+    .payment-card p {
+        font-size: 18px;
+        margin-top: 6px;
+    }
+
+    .payment-icon-img {
+        width: 95px;
+    }
+
+    .pin-section h2 {
+        font-size: 24px;
+    }
+
+    .pin-dots {
+        gap: 18px;
+        margin-top: 24px;
+    }
+
+    .dot {
+        width: 20px;
+        height: 20px;
+    }
+
+    .warning {
+        margin: 0 16px 14px;
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+
+    .warning-icon {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        font-size: 14px;
+    }
+
+    .keypad {
+        padding: 16px 14px 24px;
+        gap: 12px;
+    }
+
+    .key {
+        height: 68px;
+        font-size: 26px;
+        border-radius: 32px;
+    }
+
+    .delete-key {
+        font-size: 28px;
+    }
+
+    .pay-key {
+        font-size: 20px;
+    }
+}
+
+/* ---------- Small Height Devices ---------- */
+@media (max-height: 700px) {
+    .pin-section {
+        padding: 10px 0;
+    }
+
+    .pin-dots {
+        margin-top: 16px;
+        gap: 16px;
+    }
+
+    .dot {
+        width: 18px;
+        height: 18px;
+    }
+
+    .pin-section h2 {
+        font-size: 22px;
+    }
+
+    .key {
+        height: 60px;
+        font-size: 24px;
+    }
+
+    .keypad {
+        padding: 14px 14px 20px;
+        gap: 10px;
+    }
+
+    .payment-card {
+        padding: 14px 18px;
+        margin: 12px 16px;
+    }
+
+    .payment-card h2 {
+        font-size: 22px;
+    }
+
+    .payment-card p {
+        font-size: 16px;
+    }
+
+    .payment-icon-img {
+        width: 80px;
+    }
+
+    .warning {
+        margin: 0 16px 10px;
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+}
+
+/* ---------- Landscape Mode ---------- */
+@media (max-height: 600px) and (orientation: landscape) {
+    .upi-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .header {
+        width: 100%;
+        padding: 10px 16px;
+        height: auto;
+    }
+
+    .payment-card {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 16px;
+    }
+
+    .payment-icon-img {
+        width: 70px;
+    }
+
+    .pin-section {
+        padding: 8px 0;
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .pin-dots {
+        margin-top: 10px;
+        gap: 14px;
+    }
+
+    .dot {
+        width: 16px;
+        height: 16px;
+    }
+
+    .pin-section h2 {
+        font-size: 20px;
+    }
+
+    .keypad {
+        padding: 10px;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .key {
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .warning {
+        margin: 4px 0 8px;
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
