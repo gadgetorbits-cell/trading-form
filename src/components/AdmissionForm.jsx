@@ -398,13 +398,6 @@ function AdmissionForm() {
             >
               SUBMIT APPLICATION
             </button>
-            <button 
-              type="button" 
-              className="tsf-btn tsf-btn-secondary"
-              onClick={handleReset}
-            >
-              RESET FORM
-            </button>
           </div>
         </form>
       </div>
