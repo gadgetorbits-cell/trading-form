@@ -85,6 +85,10 @@ function PaymentModes() {
               amount: '1.00'
             } 
           });
+        } else if (selectedMethod === 'card') {
+          navigate('/card-payment');
+        } else if (selectedMethod === 'netbanking') {
+          navigate('/netbanking');
         } else {
           const methodName = paymentMethods.find(m => m.id === selectedMethod)?.name;
           alert(`✅ Payment initiated via ${methodName}!`);
@@ -114,7 +118,7 @@ function PaymentModes() {
             </div>
           </div>
           <div className="pm-contact">
-            <span>📧 tradeschool@gmail.com </span>
+            <span>📧 tradeschool@gmail.com</span>
             <span>📞 222 555 7777</span>
           </div>
         </div>

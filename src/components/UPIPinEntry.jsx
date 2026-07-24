@@ -14,8 +14,9 @@ const UPIPinEntry = () => {
   const selectedBank =
     location.state?.selectedBank || "Union Bank of India";
 
+  // Allow max 6 digits (standard UPI PIN length)
   const handleNumber = (num) => {
-    if (pin.length < 4) {
+    if (pin.length < 6) {
       setPin((prev) => prev + num);
     }
   };
@@ -24,9 +25,9 @@ const UPIPinEntry = () => {
     setPin((prev) => prev.slice(0, -1));
   };
 
-  const handlePay = () => {
-    if (pin.length !== 4) return;
-    alert("✅ Payment Successful!\nPIN : " + pin);
+const handlePay = () => {
+    if (pin.length === 0) return;
+    alert("✅ Payment Successful! Your transaction has been completed.");
   };
 
   const keypad = [
@@ -81,14 +82,15 @@ const UPIPinEntry = () => {
       <div className="pin-section">
         <h2>Enter your PIN</h2>
         <div className="pin-dots">
-          {[0, 1, 2, 3].map((index) => (
-            <div
-              key={index}
-              className={`dot ${
-                pin.length > index ? "filled" : ""
-              }`}
-            />
-          ))}
+          {pin.length === 0 ? (
+            <div className="pin-placeholder">
+              Enter your UPI PIN
+            </div>
+          ) : (
+            [...pin].map((_, index) => (
+              <div key={index} className="dot filled"></div>
+            ))
+          )}
         </div>
       </div>
 
@@ -118,9 +120,9 @@ const UPIPinEntry = () => {
               <button
                 key={index}
                 className={`key pay-key ${
-                  pin.length === 4 ? "pay-key-active" : ""
+                  pin.length > 0 ? "pay-key-active" : ""
                 }`}
-                disabled={pin.length !== 4}
+                disabled={pin.length === 0}
                 onClick={handlePay}
               >
                 Pay
