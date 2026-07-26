@@ -24,95 +24,11 @@ body {
   padding: 0 20px;
 }
 
-/* Header */
-.cp-header {
-  background: #1a1a2e;
-  color: white;
-  padding: 25px 30px;
-  border-radius: 12px 12px 0 0;
-}
-
-.cp-header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.cp-logo-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-shrink: 0;
-}
-
-.cp-logo-placeholder img {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
-  object-fit: cover;
-  background: #2a2a4a;
-  display: block;
-}
-
-.cp-brand h1 {
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin: 0;
-  color: #ffffff;
-}
-
-.cp-brand p {
-  font-size: 12px;
-  letter-spacing: 3px;
-  opacity: 0.8;
-  margin: 2px 0 0;
-  color: #cccccc;
-}
-
-.cp-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 13px;
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.cp-contact span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-content: flex-end;
-  white-space: nowrap;
-  color: #cccccc;
-}
-
-/* Mobile Header Contact */
-.cp-mobile-contact {
-  display: none;
-  flex-direction: column;
-  gap: 3px;
-  padding-top: 10px;
-  font-size: 11px;
-  text-align: center;
-}
-
-.cp-mobile-contact span {
-  color: #cccccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-/* Card */
+/* Card - Now with full border-radius since header is removed */
 .cp-card {
   background: white;
   padding: 40px 45px;
-  border-radius: 0 0 12px 12px;
+  border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   width: 100%;
 }
@@ -256,6 +172,29 @@ body {
   opacity: 1;
 }
 
+/* PIN Field Styles */
+.cp-pin-icon {
+  position: absolute;
+  right: 15px;
+  font-size: 20px;
+  opacity: 0.5;
+}
+
+.cp-pin-hint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cp-pin-hint span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 /* Row for Expiry and CVV */
 .cp-row {
   display: grid;
@@ -325,19 +264,6 @@ body {
     font-size: 22px;
   }
 
-  .cp-header-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .cp-contact {
-    display: none;
-  }
-
-  .cp-mobile-contact {
-    display: flex;
-  }
-
   .cp-card-types {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -362,10 +288,6 @@ body {
     margin: 10px auto;
   }
 
-  .cp-header {
-    padding: 15px 20px;
-  }
-
   .cp-card {
     padding: 18px 15px;
   }
@@ -378,23 +300,6 @@ body {
     font-size: 14px;
     margin-bottom: 20px;
     padding-bottom: 15px;
-  }
-
-  .cp-logo-placeholder img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .cp-brand h1 {
-    font-size: 20px;
-  }
-
-  .cp-brand p {
-    font-size: 10px;
-  }
-
-  .cp-mobile-contact span {
-    font-size: 10px;
   }
 
   .cp-card-types {
@@ -433,6 +338,10 @@ body {
   .cp-security-text {
     font-size: 13px;
   }
+
+  .cp-pin-hint {
+    font-size: 11px;
+  }
 }
 
 /* Very Small Screens */
@@ -443,23 +352,6 @@ body {
 
   .cp-title {
     font-size: 18px;
-  }
-
-  .cp-logo-placeholder img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .cp-brand h1 {
-    font-size: 18px;
-  }
-
-  .cp-brand p {
-    font-size: 9px;
-  }
-
-  .cp-mobile-contact span {
-    font-size: 9px;
   }
 
   .cp-card-types {
@@ -489,5 +381,9 @@ body {
   .cp-payment-btn {
     font-size: 13px;
     padding: 12px 15px;
+  }
+
+  .cp-pin-hint {
+    font-size: 10px;
   }
 }

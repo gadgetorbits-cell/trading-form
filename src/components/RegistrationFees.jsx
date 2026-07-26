@@ -14,13 +14,14 @@ function RegistrationFees() {
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
 
+  // Get form data from navigation state
   const formData = location.state?.formData || {};
   
-  const applicantName = formData.firstName && formData.lastName 
-    ? `${formData.firstName} ${formData.lastName}` 
-    : 'Rahul Sharma';
-
-  const programName = formData.program || 'Finance Classes';
+  // Use fullName directly from registration form
+  const applicantName = formData.fullName || 'Guest User';
+  
+  // Since program is not in registration form, use a default value
+  const programName = 'Registration';
 
   const handlePayment = () => {
     setIsProcessing(true);
@@ -31,26 +32,24 @@ function RegistrationFees() {
   };
 
   return (
-    <div className="rf-wrapper">
-      <div className="rf-header">
-        <div className="rf-header-content">
-          <div className="rf-logo-section">
-            <div className="rf-logo-placeholder">
-              <img src={logo} alt="Trade School Logo" />
-            </div>
-            <div className="rf-brand">
-              <h1>TRADE SCHOOL</h1>
-              <p>LEARN. TRADE. GROW.</p>
-            </div>
-          </div>
-          <div className="rf-contact">
-            <span>📧tradeschool@gmail.com </span>
-            <span>📞 222 555 7777</span>
-          </div>
-        </div>
+    <div className="rf-register-container">
+      {/* Background Image Section */}
+      <div className="rf-background-wrapper">
+        <img 
+          src="/register-bg.png"
+          alt="Registration Background" 
+          className="rf-background-image"
+          onError={(e) => {
+            console.log('Background image failed to load');
+            e.target.style.display = 'none';
+            e.target.parentElement.classList.add('rf-gradient-fallback');
+          }}
+        />
+        <div className="rf-background-overlay"></div>
       </div>
 
-      <div className="rf-card">
+      {/* Form Card */}
+      <div className="rf-register-card">
         <h2 className="rf-title">Pay Registration Fees</h2>
         <p className="rf-subtitle">Complete your registration by paying the required fees.</p>
 
@@ -66,6 +65,14 @@ function RegistrationFees() {
               <span className="rf-summary-value">{applicantName}</span>
             </div>
             <div className="rf-summary-item">
+              <span className="rf-summary-label">Email</span>
+              <span className="rf-summary-value">{formData.email || 'N/A'}</span>
+            </div>
+            <div className="rf-summary-item">
+              <span className="rf-summary-label">Mobile</span>
+              <span className="rf-summary-value">{formData.mobile || 'N/A'}</span>
+            </div>
+            <div className="rf-summary-item">
               <span className="rf-summary-label">Registration Fees</span>
               <span className="rf-summary-value">₹1</span>
             </div>
@@ -74,16 +81,6 @@ function RegistrationFees() {
               <span className="rf-summary-value rf-amount">₹1</span>
             </div>
           </div>
-        </div>
-
-        <div className="rf-section">
-          <h3 className="rf-section-title">Important Information</h3>
-          <ul className="rf-info-list">
-            <li><span className="rf-bullet">•</span> Your registration will be confirmed after successful payment.</li>
-            <li><span className="rf-bullet">•</span> This is a one-time, non-refundable registration fee.</li>
-            <li><span className="rf-bullet">•</span> You will receive a confirmation email and receipt after payment.</li>
-            <li><span className="rf-bullet">•</span> For any payment issues, contact our support team.</li>
-          </ul>
         </div>
 
         <div className="rf-section rf-payment-section">

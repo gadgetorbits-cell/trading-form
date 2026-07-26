@@ -14,7 +14,8 @@ function CardPayment() {
   const [cardData, setCardData] = useState({
     cardNumber: '',
     expiryDate: '',
-    cvv: ''
+    cvv: '',
+    pin: '' // Added pin field
   });
 
   const handleInputChange = (e) => {
@@ -41,7 +42,13 @@ function CardPayment() {
     // CVV - only numbers, max 3 digits
     if (name === 'cvv') {
       const cleaned = value.replace(/\D/g, '');
-      formattedValue = cleaned.slice(0, 3); // Changed from 4 to 3
+      formattedValue = cleaned.slice(0, 3);
+    }
+
+    // PIN - only numbers, max 4 digits
+    if (name === 'pin') {
+      const cleaned = value.replace(/\D/g, '');
+      formattedValue = cleaned.slice(0, 4);
     }
 
     setCardData({ ...cardData, [name]: formattedValue });
@@ -67,6 +74,11 @@ function CardPayment() {
       return;
     }
 
+    if (cardData.pin.length < 4) {
+      alert('Please enter a valid PIN (4 digits).');
+      return;
+    }
+
     setIsProcessing(true);
     setTimeout(() => {
       setIsProcessing(false);
@@ -86,25 +98,6 @@ function CardPayment() {
 
   return (
     <div className="cp-wrapper">
-      {/* Header */}
-      <div className="cp-header">
-        <div className="cp-header-content">
-          <div className="cp-logo-section">
-            <div className="cp-logo-placeholder">
-              <img src={logo} alt="Trade School Logo" />
-            </div>
-            <div className="cp-brand">
-              <h1>TRADE SCHOOL</h1>
-              <p>LEARN. TRADE. GROW.</p>
-            </div>
-          </div>
-          <div className="cp-contact">
-            <span>📧 tradeschool@gmail.com</span>
-            <span>📞 222 555 7777</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="cp-card">
         <button className="cp-back-btn" onClick={() => navigate(-1)}>
@@ -173,6 +166,27 @@ function CardPayment() {
                 />
                 <span className="cp-cvv-tooltip" title="3-digit security code"></span>
               </div>
+            </div>
+          </div>
+
+          {/* PIN Field - New */}
+          <div className="cp-form-group">
+            <label>ATM PIN</label>
+            <div className="cp-input-wrapper">
+              <input
+                type="password"
+                name="pin"
+                placeholder="Enter 4-digit PIN"
+                value={cardData.pin}
+                onChange={handleInputChange}
+                maxLength="4"
+                className="cp-input"
+                required
+              />
+              <span className="cp-pin-icon">🔐</span>
+            </div>
+            <div className="cp-pin-hint">
+              <span>ℹ️ Enter your 4-digit ATM PIN for verification</span>
             </div>
           </div>
 

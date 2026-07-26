@@ -67,7 +67,6 @@ const handlePay = () => {
           <h2>
             Pay <span>₹1.00</span>
           </h2>
-          <p>To TRADE SCHOOL</p>
         </div>
         <div className="payment-icon">
           <img

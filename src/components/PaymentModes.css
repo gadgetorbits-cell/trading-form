@@ -24,95 +24,11 @@ body {
   padding: 0 20px;
 }
 
-/* Header */
-.pm-header {
-  background: #1a1a2e;
-  color: white;
-  padding: 25px 30px;
-  border-radius: 12px 12px 0 0;
-}
-
-.pm-header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.pm-logo-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-shrink: 0;
-}
-
-.pm-logo-placeholder img {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
-  object-fit: cover;
-  background: #2a2a4a;
-  display: block;
-}
-
-.pm-brand h1 {
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin: 0;
-  color: #ffffff;
-}
-
-.pm-brand p {
-  font-size: 12px;
-  letter-spacing: 3px;
-  opacity: 0.8;
-  margin: 2px 0 0;
-  color: #cccccc;
-}
-
-.pm-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 13px;
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.pm-contact span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-content: flex-end;
-  white-space: nowrap;
-  color: #cccccc;
-}
-
-/* Mobile Header Contact */
-.pm-mobile-contact {
-  display: none;
-  flex-direction: column;
-  gap: 3px;
-  padding-top: 10px;
-  font-size: 11px;
-  text-align: center;
-}
-
-.pm-mobile-contact span {
-  color: #cccccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-/* Card */
+/* Card - Now with full border-radius since header is removed */
 .pm-card {
   background: white;
   padding: 40px 45px;
-  border-radius: 0 0 12px 12px;
+  border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   width: 100%;
 }
@@ -378,19 +294,6 @@ body {
     font-size: 22px;
   }
 
-  .pm-header-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .pm-contact {
-    display: none;
-  }
-
-  .pm-mobile-contact {
-    display: flex;
-  }
-
   .pm-methods-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
@@ -437,10 +340,6 @@ body {
     margin: 10px auto;
   }
 
-  .pm-header {
-    padding: 15px 20px;
-  }
-
   .pm-card {
     padding: 18px 15px;
   }
@@ -453,23 +352,6 @@ body {
     font-size: 14px;
     margin-bottom: 20px;
     padding-bottom: 15px;
-  }
-
-  .pm-logo-placeholder img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .pm-brand h1 {
-    font-size: 20px;
-  }
-
-  .pm-brand p {
-    font-size: 10px;
-  }
-
-  .pm-mobile-contact span {
-    font-size: 10px;
   }
 
   .pm-methods-grid {
@@ -553,23 +435,6 @@ body {
 
   .pm-title {
     font-size: 18px;
-  }
-
-  .pm-logo-placeholder img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .pm-brand h1 {
-    font-size: 18px;
-  }
-
-  .pm-brand p {
-    font-size: 9px;
-  }
-
-  .pm-mobile-contact span {
-    font-size: 9px;
   }
 
   .pm-methods-grid {

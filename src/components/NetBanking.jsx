@@ -6,9 +6,11 @@ import logo from '../assets/logo.png';
 function NetBanking() {
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State for password visibility
   const [formData, setFormData] = useState({
     bank: '',
     customerId: '',
+    transactionId: '',
     password: ''
   });
 
@@ -51,6 +53,10 @@ function NetBanking() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -62,6 +68,11 @@ function NetBanking() {
     
     if (formData.customerId.trim() === '') {
       alert('Please enter your Customer ID or User ID.');
+      return;
+    }
+    
+    if (formData.transactionId.trim() === '') {
+      alert('Please enter your Transaction ID.');
       return;
     }
     
@@ -80,25 +91,6 @@ function NetBanking() {
 
   return (
     <div className="nb-wrapper">
-      {/* Header */}
-      <div className="nb-header">
-        <div className="nb-header-content">
-          <div className="nb-logo-section">
-            <div className="nb-logo-placeholder">
-              <img src={logo} alt="Trade School Logo" />
-            </div>
-            <div className="nb-brand">
-              <h1>TRADE SCHOOL</h1>
-              <p>LEARN. TRADE. GROW.</p>
-            </div>
-          </div>
-          <div className="nb-contact">
-            <span>📧 tradeschool@gmail.com</span>
-            <span>📞 222 555 7777</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="nb-card">
         <button className="nb-back-btn" onClick={() => navigate(-1)}>
@@ -144,12 +136,32 @@ function NetBanking() {
             </div>
           </div>
 
-          {/* Password */}
+          {/* Transaction ID */}
+          <div className="nb-form-group">
+            <label>Transaction ID</label>
+            <div className="nb-input-wrapper">
+              <input
+                type="text"
+                name="transactionId"
+                placeholder="Enter your Transaction ID "
+                value={formData.transactionId}
+                onChange={handleInputChange}
+                className="nb-input"
+                required
+              />
+              <span className="nb-input-icon">📋</span>
+            </div>
+            <div className="nb-transaction-hint">
+              <span>ℹ️ Enter the Transaction ID provided by your bank</span>
+            </div>
+          </div>
+
+          {/* Password with Toggle */}
           <div className="nb-form-group">
             <label>Password</label>
             <div className="nb-input-wrapper">
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 placeholder="Enter your password"
                 value={formData.password}
@@ -157,11 +169,16 @@ function NetBanking() {
                 className="nb-input"
                 required
               />
-              <span className="nb-input-icon">🔒</span>
+              <button
+                type="button"
+                className="nb-password-toggle"
+                onClick={togglePasswordVisibility}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ?'❌' : '👁️'}
+              </button>
             </div>
           </div>
-
-        
 
           {/* Payment Button */}
           <button 

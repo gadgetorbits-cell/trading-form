@@ -105,25 +105,6 @@ function PaymentModes() {
 
   return (
     <div className="pm-wrapper">
-      {/* Header */}
-      <div className="pm-header">
-        <div className="pm-header-content">
-          <div className="pm-logo-section">
-            <div className="pm-logo-placeholder">
-              <img src={logo} alt="Trade School Logo" />
-            </div>
-            <div className="pm-brand">
-              <h1>TRADE SCHOOL</h1>
-              <p>LEARN. TRADE. GROW.</p>
-            </div>
-          </div>
-          <div className="pm-contact">
-            <span>📧 tradeschool@gmail.com</span>
-            <span>📞 222 555 7777</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="pm-card">
         <h2 className="pm-title">Select Payment Mode</h2>

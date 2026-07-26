@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<AdmissionForm />} />
-          <Route path="/payment" element={<RegistrationFees />} />
+          <Route path="/RegistrationFees" element={<RegistrationFees />} />
           <Route path="/payment-modes" element={<PaymentModes />} />
           <Route path="/upi-pin" element={<UPIPinEntry />} />
           <Route path="/card-payment" element={<CardPayment />} />
